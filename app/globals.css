@@ -125,4 +125,22 @@ html {
   .text-balance {
     text-wrap: balance;
   }
+  
+  .animate-heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+  }
+  
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+  }
+
+  @keyframes scan {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(200%); }
+  }
+  
+  .dual-glow {
+    filter: drop-shadow(0 0 2px #000) drop-shadow(0 0 15px rgba(16, 185, 129, 0.4));
+  }
 }

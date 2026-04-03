@@ -1,5 +1,7 @@
 import Button from '@/components/ui/Button';
 import Section from '@/components/ui/Section';
+import Card from '@/components/ui/Card';
+import Image from 'next/image';
 
 export default function Home() {
     return (
@@ -142,17 +144,106 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="relative">
-                        <div className="aspect-square rounded-2xl bg-gradient-to-br from-accent-amber/20 to-accent-emerald/20 p-12 flex items-center justify-center">
-                            <div className="text-center">
-                                <div className="text-6xl font-heading font-bold mb-4">10M+</div>
-                                <div className="text-xl text-text-secondary">Requests Per Second</div>
-                                <div className="mt-8 text-sm text-text-secondary">
-                                    Peak capacity handled by our infrastructure
+                    <div className="relative overflow-hidden group rounded-2xl border border-white/10 shadow-2xl">
+                        <div className="absolute inset-0 z-0">
+                            <Image
+                                src="/images/infrastructure-stats.png"
+                                alt="Global Infrastructure Network"
+                                fill
+                                className="object-cover opacity-50 group-hover:scale-110 transition-transform duration-1000"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-dark-bg/60 z-10" />
+                        </div>
+                        
+                        {/* Status UI Overlay */}
+                        <div className="absolute top-6 right-6 z-30 flex items-center space-x-2 px-3 py-1 bg-black/40 backdrop-blur-md rounded-full border border-white/10">
+                            <div className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                            <span className="text-[10px] font-bold tracking-widest text-accent-emerald uppercase">Live Feed</span>
+                        </div>
+
+                        <div className="relative z-20 aspect-square p-12 flex flex-col items-center justify-center backdrop-blur-[2px]">
+                            <div className="text-center animate-heartbeat">
+                                <div className="text-7xl font-heading font-bold mb-2 text-white dual-glow tracking-tighter">10M+</div>
+                                <div className="text-xl font-medium text-accent-emerald/90 tracking-wide uppercase text-sm mb-6">Requests Per Second</div>
+                                
+                                <div className="flex items-center justify-center space-x-4 opacity-70">
+                                    <div className="h-[1px] w-8 bg-gradient-to-r from-transparent to-white/30" />
+                                    <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-text-secondary">Global Peak Capacity</div>
+                                    <div className="h-[1px] w-8 bg-gradient-to-l from-transparent to-white/30" />
                                 </div>
                             </div>
                         </div>
+
+                        {/* Scanner Line Effect */}
+                        <div className="absolute inset-0 z-20 pointer-events-none overflow-hidden opacity-20">
+                            <div className="w-full h-1/2 bg-gradient-to-b from-transparent via-accent-emerald/20 to-transparent absolute top-0 left-0 -translate-y-full animate-[scan_4s_linear_infinite]" />
+                        </div>
                     </div>
+                </div>
+            </Section>
+
+            {/* Enterprise Ecosystem Section */}
+            <Section className="relative overflow-hidden">
+                {/* Background Technical Radar Decor */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03] pointer-events-none z-0">
+                    <svg viewBox="0 0 1000 1000" className="w-full h-full animate-[spin_60s_linear_infinite]">
+                        <circle cx="500" cy="500" r="100" stroke="currentColor" fill="none" strokeWidth="1" />
+                        <circle cx="500" cy="500" r="200" stroke="currentColor" fill="none" strokeWidth="1" />
+                        <circle cx="500" cy="500" r="300" stroke="currentColor" fill="none" strokeWidth="1" />
+                        <circle cx="500" cy="500" r="400" stroke="currentColor" fill="none" strokeWidth="1" />
+                        <line x1="500" y1="100" x2="500" y2="900" stroke="currentColor" strokeWidth="1" />
+                        <line x1="100" y1="500" x2="900" y2="500" stroke="currentColor" strokeWidth="1" />
+                    </svg>
+                </div>
+
+                <div className="relative z-10 text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">The AXIOM Ecosystem</h2>
+                    <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+                        Our infrastructure is more than just hardware. It's an intelligent, global software-defined fabric 
+                        engineered for the absolute edge of possibility.
+                    </p>
+                </div>
+
+                <div className="relative z-10 grid md:grid-cols-3 gap-8">
+                    <Card className="group hover:border-accent-amber transition-all duration-300">
+                        <div className="mb-6 w-12 h-12 rounded-lg bg-accent-amber/10 flex items-center justify-center text-accent-amber group-hover:bg-accent-amber group-hover:text-black transition-all">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-heading font-semibold mb-3">Global Anycast</h3>
+                        <p className="text-sm text-text-secondary leading-relaxed">
+                            Distributed global traffic management using BGP anycast routing across 300+ edge locations 
+                            to ensure sub-50ms latency for 99% of the world.
+                        </p>
+                    </Card>
+
+                    <Card className="group hover:border-accent-emerald transition-all duration-300">
+                        <div className="mb-6 w-12 h-12 rounded-lg bg-accent-emerald/10 flex items-center justify-center text-accent-emerald group-hover:bg-accent-emerald group-hover:text-black transition-all">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-heading font-semibold mb-3">AI-Orchestration</h3>
+                        <p className="text-sm text-text-secondary leading-relaxed">
+                            Proprietary machine learning models continuously optimize workload placement, predicting 
+                            regional demand spikes before they happen and auto-healing infrastructure.
+                        </p>
+                    </Card>
+
+                    <Card className="group hover:border-accent-amber transition-all duration-300">
+                        <div className="mb-6 w-12 h-12 rounded-lg bg-accent-amber/10 flex items-center justify-center text-accent-amber group-hover:bg-accent-amber group-hover:text-black transition-all">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <h3 className="text-xl font-heading font-semibold mb-3">Quantum-Safe</h3>
+                        <p className="text-sm text-text-secondary leading-relaxed">
+                            Hardware-root-of-trust with post-quantum cryptography standards (NIST-ready) to protect 
+                            your most sensitive data from next-generation security threats.
+                        </p>
+                    </Card>
                 </div>
             </Section>
 
