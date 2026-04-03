@@ -20,7 +20,7 @@ export default function Section({
     const paddingClass = noPadding ? '' : 'section-padding';
 
     return (
-        <section className={`${bgClass} ${paddingClass} ${className}`}>
+        <section className={`${bgClass} ${paddingClass} ${className} will-change-transform`}>
             <div className="container-custom">
                 {children}
             </div>

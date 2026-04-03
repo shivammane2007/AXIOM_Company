@@ -29,25 +29,9 @@ export default function Navbar() {
                             {/* Hexagon Logo */}
                             <div className="relative w-10 h-10">
                                 <svg viewBox="0 0 100 100" className="w-full h-full">
-                                    <polygon
-                                        points="50,10 90,30 90,70 50,90 10,70 10,30"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="4"
-                                        className="text-accent-amber"
-                                    />
-                                    <polygon
-                                        points="50,25 75,37.5 75,62.5 50,75 25,62.5 25,37.5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="3"
-                                        className="text-accent-emerald"
-                                    />
-                                    <polygon
-                                        points="50,40 60,45 60,55 50,60 40,55 40,45"
-                                        fill="currentColor"
-                                        className="text-accent-amber"
-                                    />
+                                    <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" fill="none" stroke="currentColor" strokeWidth="4" className="text-accent-amber" />
+                                    <polygon points="50,25 75,37.5 75,62.5 50,75 25,62.5 25,37.5" fill="none" stroke="currentColor" strokeWidth="3" className="text-accent-emerald" />
+                                    <polygon points="50,40 60,45 60,55 50,60 40,55 40,45" fill="currentColor" className="text-accent-amber" />
                                 </svg>
                             </div>
                         </div>

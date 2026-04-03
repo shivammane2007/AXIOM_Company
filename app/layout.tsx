@@ -7,13 +7,15 @@ const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
     display: 'swap',
+    preload: true,
 });
 
 const dmSans = DM_Sans({
     subsets: ['latin'],
-    weight: ['500', '700'],
+    weight: ['500', '600', '700'],
     variable: '--font-dm-sans',
     display: 'swap',
+    preload: true,
 });
 
 export const metadata: Metadata = {

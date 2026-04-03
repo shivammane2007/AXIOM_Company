@@ -30,6 +30,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Inter', system-ui, sans-serif;
+  text-rendering: optimizeSpeed; /* Speed first for mobile */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Typography Utilities */
@@ -113,6 +116,7 @@ html {
     @apply p-8 rounded-xl border border-light-border dark:border-dark-border
            bg-light-surface dark:bg-dark-surface
            shadow-sm hover:shadow-md transition-shadow duration-200;
+    will-change: transform, opacity; /* Preparation for hover animation */
   }
 }
 
