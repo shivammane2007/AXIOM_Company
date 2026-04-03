@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Theme */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #0a0a0a;
+  --text-secondary: #525252;
+  --border-color: #e5e5e5;
+  --accent-amber: #f59e0b;
+  --accent-emerald: #10b981;
+}
+
+.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --text-primary: #fafafa;
+  --text-secondary: #a3a3a3;
+  --border-color: #262626;
+}
+
+/* Smooth theme transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Typography Utilities */
+.heading {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 700;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Base layer customizations */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  
+  h1 {
+    @apply text-h1;
+  }
+  
+  h2 {
+    @apply text-h2;
+  }
+  
+  h3 {
+    @apply text-h3;
+  }
+  
+  h4 {
+    @apply text-h4;
+  }
+}
+
+/* Component layer customizations */
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+  
+  .section-padding {
+    @apply py-20 lg:py-32;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 bg-accent-amber text-black font-medium rounded-lg 
+           hover:bg-amber-600 transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-accent-amber focus:ring-offset-2
+           dark:focus:ring-offset-dark-bg;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 border-2 border-current font-medium rounded-lg
+           hover:bg-white hover:text-black dark:hover:bg-dark-surface
+           transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-accent-emerald focus:ring-offset-2
+           dark:focus:ring-offset-dark-bg;
+  }
+  
+  .card {
+    @apply p-8 rounded-xl border border-light-border dark:border-dark-border
+           bg-light-surface dark:bg-dark-surface
+           shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+}
+
+/* Utility layer */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
